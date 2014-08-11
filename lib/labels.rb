@@ -33,13 +33,11 @@ class Labels
       define_grid(columns: cols, rows: rows, row_gutter: 0, column_gutter: 10)
       font font_path
       font_size 10
-      labels.each do |l|
+      labels.each do |label|
         counts = counter.count
         grid(counts[:row], counts[:col]).bounding_box do
           bounding_box([20, 60], :width => 150) do
-            l.each do |line|
-              text line
-            end
+            text label.join("\n")
           end
         end
       end
